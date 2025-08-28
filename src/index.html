@@ -2,11 +2,77 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self'; 
+        script-src 'self' https://fonts.googleapis.com https://esm.run https://cdn.jsdelivr.net 'unsafe-inline'; 
+        font-src 'self' https://fonts.gstatic.com;
+        style-src 'self' https://fonts.googleapis.com 'unsafe-inline'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@20..48,100..700,0..1"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL@20..48,100..700,0..1"
+      rel="stylesheet">
+
     <link rel="stylesheet" href="index.css" />
+    <title>Hello World!</title>
+    <script src="script.js"></script>
+    <script type="importmap">
+          {
+            "imports": {
+              "@material/web/": "https://esm.run/@material/web/"
+            }
+          }
+        </script>
+    <script type="module">
+          import '@material/web/all.js';
+          import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+          document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        </script>
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <!-- <span class="material-symbols-outlined">search</span> -->
+    <header>
+      <!-- Where we put the top shit -->
+      <md-icon-button toggle selected>
+        <md-icon>close</md-icon>
+        <md-icon slot="selected">menu</md-icon>
+      </md-icon-button>
+      <md-outlined-select>
+        <md-select-option value="day"><div
+            slot="headline">Day</div></md-select-option>
+        <md-select-option selected value="week"><div
+            slot="headline">Week</div></md-select-option>
+        <md-select-option value="month"><div
+            slot="headline">Month</div></md-select-option>
+        <md-select-option value="year"><div
+            slot="headline">Year</div></md-select-option>
+      </md-outlined-select>
+    </header>
+    <div class="calendar-body">
+      <!-- Split in half between the sidebar and the main calendar stuff -->
+      <div class="calendar-sidebar">
+        <label>
+          <md-checkbox touch-target="wrapper"></md-checkbox>
+          Checkbox one
+        </label>
+      </div>
+      <div class="calendar-holder"></div>
+    </div>
+
   </body>
 </html>

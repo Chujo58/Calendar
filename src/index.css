@@ -1,7 +1,13 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+:root {
+    font-family: "Outfit", sans-serif;
+
+    --md-ref-typeface-brand: "Outfit", sans-serif;
+    --md-outlined-select-text-field-input-text-font: "Outfit", sans-serif;
+    --md-outlined-select-text-field-container-shape: 30px;
+
+    --md-icon-font: "Material Symbols Rounded";
+}
+
+*:not(md-icon) {
+    font-family: "Outfit", sans-serif;
 }
